@@ -1,0 +1,16 @@
+LICENSE
+README.md
+com.ibm.cics.minibank.AOR.OSGI
+com.ibm.cics.minibank.AOR.application.bundle
+com.ibm.cics.minibank.AOR.system.bundle
+com.ibm.cics.minibank.CSD
+com.ibm.cics.minibank.DBTable
+com.ibm.cics.minibank.WOR.application
+com.ibm.cics.minibank.WOR.application.bundle
+com.ibm.cics.minibank.WOR.system.bundle
+com.ibm.cics.minibank.WOR.webapp
+com.ibm.cics.minibank.cobol
+com.ibm.cics.minibank.common.OSGI
+com.ibm.cics.minibank.copybook
+com.ibm.cics.minibank.zosconnect
+testfile.txt
