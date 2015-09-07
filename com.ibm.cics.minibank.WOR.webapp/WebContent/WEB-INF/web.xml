@@ -39,13 +39,30 @@
 			</param-value>
 		</init-param>
 	</filter>
+
 	<filter-mapping>
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-   
-    <welcome-file-list>
+
+	
+		
+	<filter>
+		<display-name>cacheControlFilter</display-name>
+		<filter-name>cacheControlFilter</filter-name>
+		<filter-class>com.ibm.cics.minibank.util.cacheControlFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>cacheControlFilter</filter-name>
+		<url-pattern>*.js</url-pattern>
+		<url-pattern>*.css</url-pattern>
+		<url-pattern>*.htm</url-pattern>
+
+	</filter-mapping>
+
+
+	<welcome-file-list>
         <welcome-file>/jsp/catalog.jsp</welcome-file>
     </welcome-file-list>
     
