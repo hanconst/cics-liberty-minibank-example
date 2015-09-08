@@ -1,21 +1,18 @@
 package com.ibm.cics.minibank.action;
 
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-import javax.transaction.HeuristicMixedException;
-import javax.transaction.HeuristicRollbackException;
-import javax.transaction.NotSupportedException;
-import javax.transaction.RollbackException;
-import javax.transaction.SystemException;
-import javax.transaction.UserTransaction;
+//import javax.naming.NamingException;
+//import javax.transaction.HeuristicMixedException;
+//import javax.transaction.HeuristicRollbackException;
+//import javax.transaction.NotSupportedException;
+//import javax.transaction.RollbackException;
+//import javax.transaction.SystemException;
+//import javax.transaction.UserTransaction;
 
 import com.ibm.cics.minibank.util.WORDBUtil;
 import com.ibm.cics.minibank.common.util.IConstants;
@@ -225,63 +222,63 @@ public class TransManagementAction extends ActionSupport {
 				+ "'" + txTime + "'"
 				+ ")";
 		// update the database table
-		int numUpd = WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
+		WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
 		
 	}
 	
-	private UserTransaction startTransaction(InitialContext ctx)
-	{
-		UserTransaction tran = null;
-		try {
-			ctx = new InitialContext();
-			tran = 
-			        (UserTransaction)ctx.lookup("java:comp/UserTransaction");
-		} catch (NamingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		//transaction begin
-		try {
-			tran.begin();
-		} catch (NotSupportedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (SystemException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		return tran;
-	}
+//	private UserTransaction startTransaction(InitialContext ctx)
+//	{
+//		UserTransaction tran = null;
+//		try {
+//			ctx = new InitialContext();
+//			tran = 
+//			        (UserTransaction)ctx.lookup("java:comp/UserTransaction");
+//		} catch (NamingException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		
+//		//transaction begin
+//		try {
+//			tran.begin();
+//		} catch (NotSupportedException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (SystemException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		
+//		return tran;
+//	}
 	
-	private void endTransaction(UserTransaction tran)
-	{
-		System.out.println("get into end transacation,sourceAcct:" + sourceAcct);
-		if(sourceAcct.equals("0000000004"))
-		{
-			System.out.println("in rollback");
-			try {
-				tran.rollback();
-			} catch (IllegalStateException | SecurityException
-					| SystemException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		else
-		{
-			System.out.println("in commit");
-			try {
-				tran.commit();
-			} catch (IllegalStateException | SecurityException
-					| HeuristicMixedException | HeuristicRollbackException
-					| RollbackException | SystemException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
-	}
+//	private void endTransaction(UserTransaction tran)
+//	{
+//		System.out.println("get into end transacation,sourceAcct:" + sourceAcct);
+//		if(sourceAcct.equals("0000000004"))
+//		{
+//			System.out.println("in rollback");
+//			try {
+//				tran.rollback();
+//			} catch (IllegalStateException | SecurityException
+//					| SystemException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+//		else
+//		{
+//			System.out.println("in commit");
+//			try {
+//				tran.commit();
+//			} catch (IllegalStateException | SecurityException
+//					| HeuristicMixedException | HeuristicRollbackException
+//					| RollbackException | SystemException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+//
+//	}
 
 }

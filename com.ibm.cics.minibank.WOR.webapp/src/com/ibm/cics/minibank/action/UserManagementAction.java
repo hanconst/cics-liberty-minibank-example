@@ -19,7 +19,6 @@ import javax.transaction.UserTransaction;
 
 import com.ibm.cics.minibank.util.WORDBUtil;
 import com.ibm.cics.minibank.common.util.IConstants;
-import com.ibm.cics.minibank.util.WORPropertiesUtil;
 import com.ibm.cics.minibank.entity.User;
 import com.ibm.cics.minibank.util.TransUtil;
 import com.opensymphony.xwork2.ActionSupport;
@@ -248,7 +247,7 @@ public class UserManagementAction extends ActionSupport {
 				+ "'" + txTime + "'"
 				+ ")";
 		// update the database table
-		int numUpd = WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
+		WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
 		
 		// invokde the delegator method in the TransUtil object
 		user = TransUtil.getTranUtil().queryUser(containerData);
