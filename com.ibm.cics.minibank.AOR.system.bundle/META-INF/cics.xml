@@ -4,11 +4,4 @@
         <timestamp>2014-09-05T15:44:02.646+08:00</timestamp>
     </meta_directives>
     <define name="OSGIJVM" type="http://www.ibm.com/xmlns/prod/cics/bundle/JVMSERVER" path="OSGIJVM.jvmserver"/>
-    <define name="CACJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="CACJ.transaction"/>
-    <define name="DPTJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="DPTJ.transaction"/>
-    <define name="QACJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="QACJ.transaction"/>
-    <define name="QUSJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="QUSJ.transaction"/>
-    <define name="TSFJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="TSFJ.transaction"/>
-    <define name="WDRJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="WDRJ.transaction"/>
-    <define name="CUSJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="CUSJ.transaction"/>
 </manifest>

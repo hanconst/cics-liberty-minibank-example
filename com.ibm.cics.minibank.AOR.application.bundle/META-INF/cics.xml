@@ -13,4 +13,11 @@
     <define name="MINIBANK" type="http://www.ibm.com/xmlns/prod/cics/bundle/LIBRARY" path="MINIBANK.library"/>
     <define name="com.ibm.cics.minibank.AOR.OSGI" type="http://www.ibm.com/xmlns/prod/cics/bundle/OSGIBUNDLE" path="com.ibm.cics.minibank.AOR.OSGI.osgibundle"/>
     <define name="com.ibm.cics.minibank.common.OSGI" type="http://www.ibm.com/xmlns/prod/cics/bundle/OSGIBUNDLE" path="com.ibm.cics.minibank.common.OSGI.osgibundle"/>
+    <define name="CACJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="CACJ.transaction"/>
+    <define name="CUSJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="CUSJ.transaction"/>
+    <define name="DPTJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="DPTJ.transaction"/>
+    <define name="QACJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="QACJ.transaction"/>
+    <define name="QUSJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="QUSJ.transaction"/>
+    <define name="TSFJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="TSFJ.transaction"/>
+    <define name="WDRJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="WDRJ.transaction"/>
 </manifest>
