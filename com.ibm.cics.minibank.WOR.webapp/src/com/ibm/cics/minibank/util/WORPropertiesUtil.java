@@ -93,6 +93,7 @@ public class WORPropertiesUtil {
 		progDeposit = getProperty("PROG_DEPOSIT");
 		progWithdraw = getProperty("PROG_WITHDRAW");
 		progTransfer = getProperty("PROG_TRANSFER");
+		tableRequestHistory=getProperty("TABLE_REQHISTORY");
 		fieldRequest = getProperty("FIELD_REQHIS_REQUEST");
 		fieldTranstime = getProperty("FIELD_REQHIS_TRANSTIME");		
 	}
