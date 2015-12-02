@@ -94,7 +94,7 @@ public class UserManagementAction extends ActionSupport {
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String txTime = formatter.format(new Date());
 			// construct the SQL command
-			String sqlCmd = "INSERT INTO CTUSERS.REQHISTORY(REQUEST,TRANSTIME) VALUES("
+			String sqlCmd = "INSERT INTO XIAOPIN.REQHISTORY(REQUEST,TRANSTIME) VALUES("
 					+ "'create USER " + user.getCustomerID() + "', "
 					+ "'" + txTime + "'"
 					+ ")";
@@ -242,7 +242,7 @@ public class UserManagementAction extends ActionSupport {
 		String txTime = formatter.format(new Date());
 		
 		// construct the SQL command
-		String sqlCmd = "INSERT INTO CTUSERS.REQHISTORY(REQUEST,TRANSTIME) VALUES("
+		String sqlCmd = "INSERT INTO XIAOPIN.REQHISTORY(REQUEST,TRANSTIME) VALUES("
 				+ "'QUERY USER " + user.getCustomerID() + "', "
 				+ "'" + txTime + "'"
 				+ ")";

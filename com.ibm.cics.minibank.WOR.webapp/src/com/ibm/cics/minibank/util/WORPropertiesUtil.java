@@ -20,7 +20,11 @@ public class WORPropertiesUtil {
 	private String progQueryAcct = "";
 	private String progDeposit = "";
 	private String progWithdraw = "";
-	private String progTransfer = "";	
+	private String progTransfer = "";
+	private String tableRequestHistory = "";
+	private String fieldRequest ="";
+	private String fieldTranstime = "";
+	 
 	
 	public static WORPropertiesUtil getPropertiesUtil() {
 		if ( propertyUtil == null ) {
@@ -64,6 +68,19 @@ public class WORPropertiesUtil {
 	public String getProgTransfer() {
 		return progTransfer;
 	}
+	
+	public String getTableRequesthistory() {
+		return tableRequestHistory;
+	}
+	
+	 
+	public String getFieldRequest() {
+		return fieldRequest;
+	}
+	
+	public String getFieldTranstime() {
+		return fieldTranstime;
+	}
 
 	private WORPropertiesUtil() {
 		// TODO Auto-generated constructor stub
@@ -75,7 +92,9 @@ public class WORPropertiesUtil {
 		progQueryAcct = getProperty("PROG_QUERY_ACCT");
 		progDeposit = getProperty("PROG_DEPOSIT");
 		progWithdraw = getProperty("PROG_WITHDRAW");
-		progTransfer = getProperty("PROG_TRANSFER");	
+		progTransfer = getProperty("PROG_TRANSFER");
+		fieldRequest = getProperty("FIELD_REQHIS_REQUEST");
+		fieldTranstime = getProperty("FIELD_REQHIS_TRANSTIME");		
 	}
 	
 	

@@ -14,10 +14,13 @@ import javax.naming.InitialContext;
 //import javax.transaction.SystemException;
 //import javax.transaction.UserTransaction;
 
+
+
 import com.ibm.cics.minibank.util.WORDBUtil;
 import com.ibm.cics.minibank.common.util.IConstants;
 import com.ibm.cics.minibank.util.TransUtil;
 import com.ibm.cics.minibank.util.TransferCommarea;
+import com.ibm.cics.minibank.util.WORPropertiesUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -216,11 +219,19 @@ public class TransManagementAction extends ActionSupport {
 		// write the transaction history record
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String txTime = formatter.format(new Date());
+
 		// construct the SQL command
-		String sqlCmd = "INSERT INTO CTUSERS.REQHISTORY(REQUEST,TRANSTIME) VALUES("
-				+ "'transfer from " + sourceAcct + " to " + targetAcct +"', "
-				+ "'" + txTime + "'"
-				+ ")";
+				String sqlCmd = "INSERT INTO " + WORPropertiesUtil.getPropertiesUtil().getTableRequesthistory() + "("
+						+ WORPropertiesUtil.getPropertiesUtil().getFieldRequest() + ", "
+						+ WORPropertiesUtil.getPropertiesUtil().getFieldTranstime()
+						+ ") VALUES("
+        				+ "'transfer from " + sourceAcct + " to " + targetAcct +"', "
+	                 	+ "'" + txTime + "'"
+		                + ")";
+//		String sqlCmd = "INSERT INTO XIAOPIN.REQHISTORY(REQUEST,TRANSTIME) VALUES("
+//				+ "'transfer from " + sourceAcct + " to " + targetAcct +"', "
+//				+ "'" + txTime + "'"
+//				+ ")";
 		// update the database table
 		WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
 		
