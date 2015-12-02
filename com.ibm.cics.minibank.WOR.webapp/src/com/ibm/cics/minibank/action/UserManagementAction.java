@@ -18,6 +18,7 @@ import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
 import com.ibm.cics.minibank.util.WORDBUtil;
+import com.ibm.cics.minibank.util.WORPropertiesUtil;
 import com.ibm.cics.minibank.common.util.IConstants;
 import com.ibm.cics.minibank.entity.User;
 import com.ibm.cics.minibank.util.TransUtil;
@@ -94,7 +95,10 @@ public class UserManagementAction extends ActionSupport {
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String txTime = formatter.format(new Date());
 			// construct the SQL command
-			String sqlCmd = "INSERT INTO XIAOPIN.REQHISTORY(REQUEST,TRANSTIME) VALUES("
+			String sqlCmd = "INSERT INTO " + WORPropertiesUtil.getPropertiesUtil().getTableRequesthistory() + "("
+					+ WORPropertiesUtil.getPropertiesUtil().getFieldRequest() + ", "
+					+ WORPropertiesUtil.getPropertiesUtil().getFieldTranstime()
+					+ ") VALUES("
 					+ "'create USER " + user.getCustomerID() + "', "
 					+ "'" + txTime + "'"
 					+ ")";

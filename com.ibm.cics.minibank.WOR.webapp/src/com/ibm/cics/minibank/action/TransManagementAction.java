@@ -228,10 +228,7 @@ public class TransManagementAction extends ActionSupport {
         				+ "'transfer from " + sourceAcct + " to " + targetAcct +"', "
 	                 	+ "'" + txTime + "'"
 		                + ")";
-//		String sqlCmd = "INSERT INTO XIAOPIN.REQHISTORY(REQUEST,TRANSTIME) VALUES("
-//				+ "'transfer from " + sourceAcct + " to " + targetAcct +"', "
-//				+ "'" + txTime + "'"
-//				+ ")";
+
 		// update the database table
 		WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
 		
