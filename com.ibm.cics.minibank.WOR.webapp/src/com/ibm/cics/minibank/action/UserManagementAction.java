@@ -1,15 +1,11 @@
 package com.ibm.cics.minibank.action;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.sql.DataSource;
 import javax.transaction.HeuristicMixedException;
 import javax.transaction.HeuristicRollbackException;
 import javax.transaction.NotSupportedException;
@@ -44,7 +40,6 @@ public class UserManagementAction extends ActionSupport {
 		
 		InitialContext ctx = null;
 		UserTransaction tran = null;
-		Connection con = null;
 		try {
 			ctx = new InitialContext();
 			tran = 
@@ -67,18 +62,7 @@ public class UserManagementAction extends ActionSupport {
 
 
 			//open connection to DB2
-			DataSource ds;
-			try {
-				ds = (DataSource)ctx.lookup("jdbc/CICSType4DataSource");
-				con=ds.getConnection();
-				con.setAutoCommit(false);
-			} catch (NamingException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
-			}  catch (SQLException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
-			} 
+			WORDBUtil.getDBUtilInstance().initDB2Connection(4); // get type 4 db2 connection
 			
 			//transaction begin
 			try {
@@ -102,15 +86,9 @@ public class UserManagementAction extends ActionSupport {
 					+ "'create USER " + user.getCustomerID() + "', "
 					+ "'" + txTime + "'"
 					+ ")";
+			
 			// update the database table
-			Statement stat = null;
-			try {
-				stat = con.createStatement();
-				stat.execute(sqlCmd);
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}		
+			WORDBUtil.getDBUtilInstance().execUpdateSQL(sqlCmd);
 			
 			// Put the create user transaction data into HashMap to construct channel/container later
 			HashMap<String, String> containerData = new HashMap<String, String>();
@@ -125,17 +103,8 @@ public class UserManagementAction extends ActionSupport {
 
 			System.out.println("before commit and rollback");
 			System.out.println("userid:"+user.getCustomerID());
-			//simulate a rollback when userid is "rollback"
 			
-			try {
-				stat.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-
-			
+			//simulate a rollback when userid is "rollback"		
 			if (user.getCustomerID().equals("rollback"))
 			{
 				try {
@@ -193,7 +162,6 @@ public class UserManagementAction extends ActionSupport {
 			}
 			
 			//close DB2 connection
-
 			WORDBUtil.getDBUtilInstance().closeDB2Connection();
 			
 
