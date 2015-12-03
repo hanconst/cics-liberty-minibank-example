@@ -246,7 +246,10 @@ public class UserManagementAction extends ActionSupport {
 		String txTime = formatter.format(new Date());
 		
 		// construct the SQL command
-		String sqlCmd = "INSERT INTO XIAOPIN.REQHISTORY(REQUEST,TRANSTIME) VALUES("
+		String sqlCmd = "INSERT INTO "+ WORPropertiesUtil.getPropertiesUtil().getTableRequesthistory() + "("
+				+ WORPropertiesUtil.getPropertiesUtil().getFieldRequest() + ", "
+				+ WORPropertiesUtil.getPropertiesUtil().getFieldTranstime()
+				+ ") VALUES("
 				+ "'QUERY USER " + user.getCustomerID() + "', "
 				+ "'" + txTime + "'"
 				+ ")";
