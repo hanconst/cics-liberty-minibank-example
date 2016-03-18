@@ -1,6 +1,4 @@
-How to setup MiniBank
-
-in your environment
+How to setup MiniBank in your environment
 
 Jiang Chen (jiangcbj@cn.ibm.com), IBM CICS
 
@@ -34,7 +32,7 @@ System requirement:
 
 3.  DB2 for z/OS V10 (or later)
 
-Setup Steps – prepare for the environment
+Setup Steps  1�7 prepare for the environment
 =========================================
 
 Get the Minibank sources from the Github
@@ -107,9 +105,9 @@ Get the Minibank sources from the Github
 Import the projects to CICS Explorer
 ------------------------------------
 
-1.  In Eclipse, Open J2EE Perspective and open “Project Explorer” view by Windows -&gt; Show view -&gt; Project Explorer., and right-click the blank area in “Project Explorer” view and choose “Import” in the pop-up menu.
+1.  In Eclipse, Open J2EE Perspective and open “Project Explorer 1�7 view by Windows -&gt; Show view -&gt; Project Explorer., and right-click the blank area in “Project Explorer 1�7 view and choose “Import 1�7 in the pop-up menu.
 
-2.  In the pop-up wizard, choose General -&gt; Existing projects into Workplace. You can enter “Existing projects” in the input box to easily locate the item. Click Next.
+2.  In the pop-up wizard, choose General -&gt; Existing projects into Workplace. You can enter “Existing projects 1�7 in the input box to easily locate the item. Click Next.
 
 ![](images/import.jpg)
 
@@ -309,13 +307,13 @@ Export the projects to USS
 
 **com.ibm.cics.minibank.WOR.system.bundle;**
 
-1.  Right click the **com.ibm.cics.minibank.AOR.application.bundle,** choose the menu “Export Bundle Project to z/OS UNIX File System…”
+1.  Right click the **com.ibm.cics.minibank.AOR.application.bundle,** choose the menu “Export Bundle Project to z/OS UNIX File System…�1�7�1�7
 
-2.  Select the “Export to specific location in the file system”
+2.  Select the “Export to specific location in the file system 1�7
 
 ![](images/export.jpg)
 
-Enter your USS folder **(/u/ \*\***) as Parent Directory to export the bundle. It does not matter the directory is not there because the tool will create one for you. if you already have old content in the folder, for example the old version of the bundle, you can enable the check box “Clear existing contents of Bundle directory” to clean the folder before exporting. Click **Finish** to export the **com.ibm.cics.minibank.AOR.application.bundle** bundle.
+Enter your USS folder **(/u/ \*\***) as Parent Directory to export the bundle. It does not matter the directory is not there because the tool will create one for you. if you already have old content in the folder, for example the old version of the bundle, you can enable the check box “Clear existing contents of Bundle directory 1�7 to clean the folder before exporting. Click **Finish** to export the **com.ibm.cics.minibank.AOR.application.bundle** bundle.
 
 ![](images/export_folder.jpg)
 
@@ -413,15 +411,15 @@ All bundle artifacts are at USS now. In this step, you need to define and instal
 
 -   For WOR:
 
-    -   BUNDLE: WAPPBUND – for WORapplication bundle
+    -   BUNDLE: WAPPBUND  1�7 for WORapplication bundle
 
-    -   BUNDLE: WSYSBUND – for WORsystem bundle
+    -   BUNDLE: WSYSBUND  1�7 for WORsystem bundle
 
 -   For AOR:
 
-    -   BUNDLE: AAPPBUND – for AOR application bundle
+    -   BUNDLE: AAPPBUND  1�7 for AOR application bundle
 
-    -   BUNDLE: ASYSBUND – for AOR system bundle
+    -   BUNDLE: ASYSBUND  1�7 for AOR system bundle
 
 .
 
@@ -490,7 +488,7 @@ We need to update one file to support security and JDBC type 4 in .
 
 ![](images/zosfile.jpg)
 
-3. Set server.xml property to **binary** for FTP save purpose, binary transfer won’t corrupt the data format. Right click on server.xml, then click on Properties, change transfer mode to Binary. Save “OK”.
+3. Set server.xml property to **binary** for FTP save purpose, binary transfer won’t corrupt the data format. Right click on server.xml, then click on Properties, change transfer mode to Binary. Save “OK 1�7.
 
 ![](images/change_properties.jpg)
 
@@ -544,9 +542,9 @@ Set up CICS zosConnect support in ROR
 
 *To enable zosConnect feature in CICS, we need to set up a Liberty JVMserver. It is a good practice to configure a separate JVM server for the sole use of z/OS Connect. It is also a good practice to only have a single WebSphere Liberty Profile JVM server that is configured in any single CICS region, so we use a new TOR to host the service (ROR REGION).*
 
-*A pipeline resource is also needed to set up the JSON webservice for program “TRANSFER”. We had prepared the program “TRANSFER” in AOR and wsbind file for the pipeline resource. You can just use the created materials. *
+*A pipeline resource is also needed to set up the JSON webservice for program “TRANSFER 1�7. We had prepared the program “TRANSFER 1�7 in AOR and wsbind file for the pipeline resource. You can just use the created materials. *
 
-*We packaged all the required resources into one CICS bundle project called “**com.ibm.cics.minibank.zosconnect**” which you already imported in page 3, follow below instructions to finish setting up your first zosConnect environment.*
+*We packaged all the required resources into one CICS bundle project called  1�7**com.ibm.cics.minibank.zosconnect** 1�7 which you already imported in page 3, follow below instructions to finish setting up your first zosConnect environment.*
 
 ### Check the project is exported
 
@@ -554,7 +552,7 @@ Follow the instruction in Page 5. Make sure your **com.ibm.cics.minibank.zosconn
 
 ![](images/export_zosconnect.jpg)
 
-Do not forget to copy the “Bundle Directory” where you upload the bundle files, this directory will be used in next step for bundle definition.
+Do not forget to copy the “Bundle Directory 1�7 where you upload the bundle files, this directory will be used in next step for bundle definition.
 
 ![](images/export_zoslog.jpg)
 
@@ -568,7 +566,7 @@ Select 'Definitions-&gt; Bundle Definition' from menu.
 
 ![](images/open_bundle_definition.jpg)
 
-2. Right click the 'Bundle Definition' view and select 'New...' to startup Bundle definition wizard. You need give bundle definition a name “**ZCONNBUN**” and change **bundle directory** the folder where you exported the bundle project under your USS folder.
+2. Right click the 'Bundle Definition' view and select 'New...' to startup Bundle definition wizard. You need give bundle definition a name  1�7**ZCONNBUN** 1�7 and change **bundle directory** the folder where you exported the bundle project under your USS folder.
 
 ![](images/zosbundle_wizard.jpg)
 
@@ -588,7 +586,7 @@ Select 'Definitions-&gt; Bundle Definition' from menu.
 
 -   *One pipeline resource for the json webservice. The wsbind file referenced in pipeline is generated from DFHLS2JS utility.*
 
--   *A remote program ‘TRANSFER’, which is the end program to provide the function logic.*
+-   *A remote program ‘TRANSFER 1�7, which is the end program to provide the function logic.*
 
 ### Customize server.xml to enable zosConnect feature
 
@@ -598,9 +596,9 @@ Select 'Definitions-&gt; Bundle Definition' from menu.
 
 2. Locate the Liberty server.xml under your WORKDIR. The Liberty server.xml will under:
 
-“*/u/ \*\*/zosConnect/workdir/ROR REGION/ZOSCONN/wlp/usr/servers/defaultServer*”. Please replace \*\* with your team number.
+ 1�7*/u/ \*\*/zosConnect/workdir/ROR REGION/ZOSCONN/wlp/usr/servers/defaultServer* 1�7. Please replace \*\* with your team number.
 
-3. Set server.xml property to **binary** for FTP save purpose, binary transfer won’t corrupt the data format. Right click on server.xml, then click on Properties, change transfer mode to Binary. Save “OK”.
+3. Set server.xml property to **binary** for FTP save purpose, binary transfer won’t corrupt the data format. Right click on server.xml, then click on Properties, change transfer mode to Binary. Save “OK 1�7.
 
 ![](images/change_properties.jpg)
 
@@ -622,23 +620,23 @@ Add following statements under featureManager tag.
 
 ![](images/server_xml_con.jpg)
 
-6. Check log for zosConnect feature enabled message. Find your liberty server log: The directory should be “*/u/team\*\*/zosConnect/workdir/ROR REGION/ZOSCONN/*”. Example in following picture:
+6. Check log for zosConnect feature enabled message. Find your liberty server log: The directory should be  1�7*/u/team\*\*/zosConnect/workdir/ROR REGION/ZOSCONN/* 1�7. Example in following picture:
 
 ![](images/liberty_log.jpg)
 
 Open message.log file, you should get
 
-“**Web Module z/OS Connect has been bound to default\_host”** message printed indicating the z/OS Connect feature is successfully deployed.
+ 1�7**Web Module z/OS Connect has been bound to default\_host 1�7** message printed indicating the z/OS Connect feature is successfully deployed.
 
 ![](images/zosconnect_log.jpg)
 
-7. Add the TRANSFER service to server.xml. We have created a pipeline resource in the bundle. This pipeline creates a “transferJSON” webservice in our CICS region, we need to register this service to zosConnect.
+7. Add the TRANSFER service to server.xml. We have created a pipeline resource in the bundle. This pipeline creates a “transferJSON 1�7 webservice in our CICS region, we need to register this service to zosConnect.
 
 Still open server.xml, add the following statements
 
 ![](images/zos_api.jpg)
 
-8. Check the “transferJSON” service is successfully deployed. Go to your browser (don’t forget to change the port):
+8. Check the “transferJSON 1�7 service is successfully deployed. Go to your browser (don’t forget to change the port):
 
 this link can help you to list all available services in this server.
 
@@ -656,9 +654,9 @@ The service is already registered and can be used now.
 
 ### Optional: Test the transferJSON API service.
 
-1. We will use Firefox add-on “RESTClient” to do the testing. If you have similar tools can send HTTP rest request, you can change to use your own one.
+1. We will use Firefox add-on “RESTClient 1�7 to do the testing. If you have similar tools can send HTTP rest request, you can change to use your own one.
 
-Search in Firefox Add-On lib, install “RESTClient”, after install and restart, it should be like this:
+Search in Firefox Add-On lib, install “RESTClient 1�7, after install and restart, it should be like this:
 
 ![](images/restclient.jpg)
 
@@ -692,9 +690,9 @@ Add JSON content-type header into request in RESTClient as below:
 
 ![](images/response.jpg)
 
-Check “Response Body”:
+Check “Response Body 1�7
 
-You should get “TRNSFER SUCCESSFULLY” result.
+You should get “TRNSFER SUCCESSFULLY 1�7 result.
 
 ![](images/response_cont.jpg)
 
@@ -710,23 +708,23 @@ Appendix A: Set up Eclipse with CICS Explore SDK for CICS Java development
 
 ### Setup JRE
 
-1.  Go to “Window -&gt; Preferences -&gt; Java -&gt; Installed JREs”, to add a JRE definition pointing to your local JRE folder. Please note this workshop need JRE 1.7. Like below:
+1.  Go to “Window -&gt; Preferences -&gt; Java -&gt; Installed JREs 1�7, to add a JRE definition pointing to your local JRE folder. Please note this workshop need JRE 1.7. Like below:
 
 ![](images/add_jre.jpg)
 
-1.  Click the “Finish” button and you will see the JVM named Java70 been added to the available JVM list:
+1.  Click the “Finish 1�7 button and you will see the JVM named Java70 been added to the available JVM list:
 
 ![](images/installed_jres.jpg)
 
-> Click the **Java70 JVM** and click “**OK**” button
+> Click the **Java70 JVM** and click  1�7**OK** 1�7 button
 
 ### Setup Plug-in Target Platform
 
-1.  Go to “Window -&gt; Preferences”, in the left list, jump to “Plug-in Development -&gt; Target Platform”, click “Add”:
+1.  Go to “Window -&gt; Preferences 1�7, in the left list, jump to “Plug-in Development -&gt; Target Platform 1�7, click “Add 1�7
 
 ![](images/target_platform.jpg)
 
-1.  Select “Template”, in the drop-down list, and select “CICS TS V5.3 with Liberty and PHP”, click Next and then Finish to close the Target Definition window.
+1.  Select “Template 1�7, in the drop-down list, and select “CICS TS V5.3 with Liberty and PHP 1�7, click Next and then Finish to close the Target Definition window.
 
 ![](images/new_target.jpg)
 
@@ -734,7 +732,7 @@ You will see:
 
 ![](images/target_platform_cont.jpg)
 
-1.  **Click the “CICS TS V5.3 with Liberty and PHP” to active it**, and then click OK to exit the Preference window.
+1.  **Click the “CICS TS V5.3 with Liberty and PHP 1�7 to active it**, and then click OK to exit the Preference window.
 
 <span id="_Appendix_B:_Configure" class="anchor"></span>
 
@@ -761,7 +759,7 @@ You will see the Host Connection view as below:
 
 ![](images/ftp_info.jpg)
 
-1.  Click “Save and Close”, in the list you can see a z/OS FTP connection configuration is created:
+1.  Click “Save and Close 1�7, in the list you can see a z/OS FTP connection configuration is created:
 
 ![](images/ftp_connection.jpg)
 
