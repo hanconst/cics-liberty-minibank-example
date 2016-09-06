@@ -53,6 +53,13 @@
                                                  
   ALTER TABLE  TRANSHISTORY ADD                  
         FOREIGN KEY FK_TRAN (ACCOUNTNUMBER)      
-        REFERENCES  ACCOUNT      (ACCOUNTNUMBER) 
-        ON DELETE NO ACTION;                     
+        TOPERENCES  ACCOUNT      (ACCOUNTNUMBER) 
+        ON DELETE NO ACTION; 
+  
+  CREATE TABLE REQHISTORY (
+		REQUEST CHAR(40) NOT NULL,
+		TRANSTIME TIMESTAMP
+	) IN DBCSD0.TSCSD0;      
+        
+                            
 COMMIT;                                          

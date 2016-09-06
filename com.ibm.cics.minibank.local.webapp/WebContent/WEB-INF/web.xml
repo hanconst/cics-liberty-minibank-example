@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>com.ibm.cics.minibank.local.webapp</display-name>
+	<welcome-file-list>
+		<welcome-file>minibank-pages/index.html</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+        <servlet-name>doTransfer</servlet-name>
+        <servlet-class>com.ibm.cics.minibank.local.webapp.servlet.JCAServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>doTransfer</servlet-name>
+        <url-pattern>minibank-pages/pages/doTransfer</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>doDeposit</servlet-name>
+        <servlet-class>com.ibm.cics.minibank.local.webapp.servlet.JCAServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>doDeposit</servlet-name>
+        <url-pattern>minibank-pages/pages/doDeposit</url-pattern>
+    </servlet-mapping>
+ 
+     <servlet>
+        <servlet-name>doWithdraw</servlet-name>
+        <servlet-class>com.ibm.cics.minibank.local.webapp.servlet.JCAServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>doWithdraw</servlet-name>
+        <url-pattern>minibank-pages/pages/doWithdraw</url-pattern>
+    </servlet-mapping>   
+    
+    
+</web-app>
