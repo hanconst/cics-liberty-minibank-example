@@ -1,4 +1,4 @@
-# CICS-Liberty-minibank-example for AP techsavvy
+# CICS-Liberty-minibank-example
 This is a demo project initiated by China CICS team. Which contains:
 
 1. Backend CICS java projects to do core banking function, interact with DB2 data.

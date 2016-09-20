@@ -6,8 +6,8 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="com.ibm.cics.explorer.sdk.web.LIBERTY_LIBRARIES/V.52"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry exported="true" kind="con" path="com.ibm.osgi.container"/>
+	<classpathentry kind="con" path="com.ibm.cics.explorer.sdk.web.LIBERTY_LIBRARIES/L.8557/V.53/CL.53"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
