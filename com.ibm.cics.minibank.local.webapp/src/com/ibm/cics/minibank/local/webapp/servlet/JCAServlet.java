@@ -14,7 +14,6 @@ import javax.resource.ResourceException;
 import javax.resource.cci.Connection;
 import javax.resource.cci.ConnectionFactory;
 import javax.resource.cci.Interaction;
-import javax.resource.cci.LocalTransaction;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -23,7 +22,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.eclipse.persistence.internal.descriptors.QueryArgument;
 
 import com.ibm.cics.minibank.local.webapp.entity.Account;
 import com.ibm.cics.minibank.local.webapp.entity.TransHistory;
@@ -152,11 +150,6 @@ public class JCAServlet extends HttpServlet {
 				rd.forward(request,response);
 			}
 					
-			
-			
-			//Use Session to send data
-//			request.getSession().setAttribute("test","method2");
-//			response.sendRedirect("testServletSendData2.jsp");
 		}
 		else{
 			System.out.println("no servlet wrapped");
@@ -192,7 +185,6 @@ public class JCAServlet extends HttpServlet {
 	        ECIInteractionSpec eSpec = new ECIInteractionSpec();
 	        eSpec.setFunctionName("DEPOSIT");
 	        eSpec.setInteractionVerb(ECIInteractionSpec.SYNC_SEND_RECEIVE);
-	        eSpec.setTPNName("DPTJ");
 	        System.out.println("Set interaction specification and Execute");
 	        
 			eciInt.execute(eSpec, inChannel, outChannel);
@@ -237,7 +229,6 @@ public class JCAServlet extends HttpServlet {
 	        ECIInteractionSpec eSpec = new ECIInteractionSpec();
 	        eSpec.setFunctionName("WITHDRAW");
 	        eSpec.setInteractionVerb(ECIInteractionSpec.SYNC_SEND_RECEIVE);
-	        eSpec.setTPNName("WDRJ");
 	        System.out.println("Set interaction specification and Execute");
 	        
 			eciInt.execute(eSpec, inChannel, outChannel);
@@ -295,7 +286,6 @@ public class JCAServlet extends HttpServlet {
 	          eSpec.setReplyLength(150);
 	          //"TRANSFER" is the name of the program to execute on CICS
 	          eSpec.setFunctionName("TRANSFER");
-	          eSpec.setTPNName("TSFJ");
 	          eSpec.setInteractionVerb(ECIInteractionSpec.SYNC_SEND_RECEIVE);
 	          System.out.println("Set interaction specification and Execute");
 	          
@@ -366,7 +356,6 @@ public class JCAServlet extends HttpServlet {
 		        ECIInteractionSpec eSpec = new ECIInteractionSpec();
 		        eSpec.setFunctionName("CRETUSER");
 		        eSpec.setInteractionVerb(ECIInteractionSpec.SYNC_SEND_RECEIVE);
-		        eSpec.setTPNName("CUSJ");
 		        System.out.println("Set interaction specification and Execute");
 		        
 		        eciInt.execute(eSpec, inChannel, outChannel);
@@ -412,7 +401,6 @@ public class JCAServlet extends HttpServlet {
 		        ECIInteractionSpec eSpec = new ECIInteractionSpec();
 		        eSpec.setFunctionName("QURYUSER");
 		        eSpec.setInteractionVerb(ECIInteractionSpec.SYNC_SEND_RECEIVE);
-		        eSpec.setTPNName("QUSJ");
 		        System.out.println("Set interaction specification and Execute");
 		        
 				eciInt.execute(eSpec, inChannel, outChannel);
@@ -509,7 +497,6 @@ public class JCAServlet extends HttpServlet {
 		        ECIInteractionSpec eSpec = new ECIInteractionSpec();
 		        eSpec.setFunctionName("CRETACCT");
 		        eSpec.setInteractionVerb(ECIInteractionSpec.SYNC_SEND_RECEIVE);
-		        eSpec.setTPNName("CACJ");
 		        System.out.println("Set interaction specification and Execute");
 		        
 		        eciInt.execute(eSpec, inChannel, outChannel);
@@ -554,7 +541,6 @@ public class JCAServlet extends HttpServlet {
 	        ECIInteractionSpec eSpec = new ECIInteractionSpec();
 	        eSpec.setFunctionName("QURYACCT");
 	        eSpec.setInteractionVerb(ECIInteractionSpec.SYNC_SEND_RECEIVE);
-	        eSpec.setTPNName("QACJ");
 	        System.out.println("Set interaction specification and Execute");
 	        
 			eciInt.execute(eSpec, inChannel, outChannel);
