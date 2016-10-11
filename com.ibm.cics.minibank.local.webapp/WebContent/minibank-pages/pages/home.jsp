@@ -71,7 +71,7 @@
 		                    <p><font size="4">JCA applications can be easily ported into a Liberty JVM server using the JCA local ECI resource adapter support:</font></p>
 		                    <p>
 		                    <ol><li><font size="4">Add the feature <strong><em>cicsts:jcalocalEci-1.0</em></strong> to server.xml.</font></li>
-		                    <li>Configure a connectionFactory in server.xml for JCA local adapter with <strong><em>properties.com.ibm.cics.wlp.jca.local.eci:</em></strong></li>
+		                    <li><font size="4">Configure a connectionFactory in server.xml for JCA local adapter with <strong><em>properties.com.ibm.cics.wlp.jca.local.eci</em></strong></font></li>
 		                    <li><font size="4">Deploy the application into CICS.</font></li></ol>
 		                    </p>                    
 		                </div>
