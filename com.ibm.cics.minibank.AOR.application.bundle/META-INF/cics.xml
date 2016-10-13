@@ -20,6 +20,4 @@
     <define name="QUSJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="QUSJ.transaction"/>
     <define name="TSFJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="TSFJ.transaction"/>
     <define name="WDRJ" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="WDRJ.transaction"/>
-    <define name="GETACCTN" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="GETACCTN.program"/>
-    <define name="GTAN" type="http://www.ibm.com/xmlns/prod/cics/bundle/TRANSACTION" path="GTAN.transaction"/>
 </manifest>
