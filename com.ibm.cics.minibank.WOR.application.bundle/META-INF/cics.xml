@@ -3,7 +3,6 @@
     <meta_directives>
         <timestamp>2014-08-07T09:16:19.476+08:00</timestamp>
     </meta_directives>
-    <define name="application" type="http://www.ibm.com/xmlns/prod/cics/bundle/EBABUNDLE" path="application.ebabundle"/>
     <define name="CRETACCT" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="CRETACCT.program"/>
     <define name="CRETUSER" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="CRETUSER.program"/>
     <define name="DEPOSIT" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="DEPOSIT.program"/>
@@ -11,4 +10,5 @@
     <define name="QURYUSER" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="QURYUSER.program"/>
     <define name="TRANSFER" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="TRANSFER.program"/>
     <define name="WITHDRAW" type="http://www.ibm.com/xmlns/prod/cics/bundle/PROGRAM" path="WITHDRAW.program"/>
+    <define name="com.ibm.cics.minibank.local.webapp" type="http://www.ibm.com/xmlns/prod/cics/bundle/WARBUNDLE" path="com.ibm.cics.minibank.local.webapp.warbundle"/>
 </manifest>

@@ -69,4 +69,9 @@ public interface IConstants {
 	public final String TRAN_DEPOSIT = "DEPOSIT";
 	public final String TRAN_WITHDRAW = "WITHDRAW";
 	public final String TRAN_TRANSFER = "TRANSFER";
+	
+	/*
+	 * exception processing
+	 */
+	public final String RECORD_NOT_OBTAINED="not obtained";
 }
