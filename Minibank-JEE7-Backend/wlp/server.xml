@@ -1,0 +1,31 @@
+<server description="Liberty for backend">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>jsp-2.3</feature>
+    	<feature>jpa-2.1</feature>
+		<feature>jaxrs-2.0</feature>
+        <feature>localConnector-1.0</feature>
+        <feature>cdi-1.2</feature>
+    </featureManager>
+
+    <!-- Default HTTP End Point -->
+	<httpEndpoint httpPort="9381" httpsPort="9382" id="defaultHttpEndpoint"/>
+	<applicationManager autoExpand="true" startTimeout="60s"/>
+
+	<dataSource jndiName="jdbc/jpaDataSource">
+		<jdbcDriver libraryRef="DerbyLib"/>
+		<properties.derby.client createDatabase="create" databaseName="/Users/Evan/Software/db-derby-10.13.1.1-bin/bin/derbyDB/Minibank" portNumber="1527" serverName="localhost" 
+		user="MINIBANK" password="ilovecics"/>
+	</dataSource>
+	
+	<library id="DerbyLib">
+	    <fileset dir="/Users/Evan/Software/db-derby-10.13.1.1-bin/lib"/>
+	</library>
+   
+
+    <applicationMonitor updateTrigger="mbean"/>
+
+
+    <webApplication id="com.ibm.cics.minibank.backend" location="com.ibm.cics.minibank.backend.war" name="com.ibm.cics.minibank.backend"/>
+</server>
