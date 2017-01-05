@@ -19,29 +19,39 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 
 ###Frontend application
 - Minibank-JEE7-Frontend/src
+
 	Source code of frontend.
 - Minibank-JEE7-Frontend/WebContent
+
 	Web pages' source code and configurations for web layer, e.g. web.xml
 - Minibank-JEE7-Frontend/wlp
+
 	server.xml configuration for frontend Liberty Server.
 - Minibank-JEE7-Frontend/com.ibm.cicsdev.minibank.frontend.war
+
 	war bundle for frontend. It's independent from the files above, without any coding and import steps, just put it in dropins file of frontend server, then the frontend part can easily run.
 
 
 ###Backend application
 - Minibank-JEE7-Backend/src
+	
 	Source code of backend.
 - Minibank-JEE7-Backend/WebContent
+	
 	Web configuration files in this folder, e.g. web.xml
-- Minibank-JEE7-Backend/wlp
+- Minibank-JEE7-Backend/wlp 
+	
 	server.xml configuration for backend Liberty Server. etc.
 - Minibank-JEE7-Backend/com.ibm.cicsdev.minibank.backend.war
+	
 	war bundle for backend. Like frontend, you can put it in dropins file of backend server, then the backend part can run on server automatically.
 	
 ###Database table definition
 - Minibank_DDL_DB2.jcl
+
 	DDL file for DB2, you can use this JCL to create the DB2 database required by Minibank on z/OS.
-- Minibank_DDL_Derby.sql	
+- Minibank_DDL_Derby.sql
+	
 	DDL file for Derby database creation, it's more easy in your local environment.
 
 ## Pre-reqs
