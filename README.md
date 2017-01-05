@@ -20,7 +20,7 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 ###Frontend application
 - Minibank-JEE7-Frontend/src
 
-	Source code of frontend.
+	Source code of frontend.In **entity** folder, 
 - Minibank-JEE7-Frontend/WebContent
 
 	Web pages' source code and configurations for web layer, e.g. web.xml
