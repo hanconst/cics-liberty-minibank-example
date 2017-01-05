@@ -6,11 +6,11 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.ibm.cics.minibank.local.webapp.util.JAXClientUtil;
 import com.ibm.cicsdev.minibank.frontend.entity.Account;
 import com.ibm.cicsdev.minibank.frontend.entity.TransactionPOJO;
 import com.ibm.cicsdev.minibank.frontend.util.IConstants;
@@ -37,25 +37,23 @@ public class TransferMB implements Serializable {
 		transPOJO.setSourceAccountId(sourceAccount.getAccountNumber());
 		transPOJO.setTargetAccountId(targetAccount.getAccountNumber());
 		transPOJO.setMoneyAmount(moneyAmount);
-		
+
 		Response response;
+		Client client = JAXClientUtil.getInstance().getJaxClient();
 		try {
-			Client client = ClientBuilder.newClient();
 			response = client.target(IConstants.URL)
 		            .path(IConstants.TRANSEVENT+IConstants.TRANSFER)
 		            .request(MediaType.APPLICATION_JSON)
 		            .put(Entity.json(transPOJO));
-			String ss=(String) response.getEntity();
-			System.out.println(ss);
-
+			response.readEntity(String.class);
 		} catch (Exception e) {
-			e.printStackTrace();	
+			e.printStackTrace();
 			this.setOperationMessage("failed...");
 			return "../notificationpages/notification_transfer_failed";
 		}
 		if (response.getStatus() == IConstants.CODE_OPERATION_SUCCESS) {
 			this.setOperationMessage(IConstants.MESSAGE_TRANSFER_SUCCESS
-			+ response.getEntity().toString());
+					+ response.getEntity().toString());
 			return "../notificationpages/notification_transfer_success";
 		} else {
 			switch (response.getStatus()) {

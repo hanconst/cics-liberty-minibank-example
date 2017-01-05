@@ -6,11 +6,11 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.ibm.cics.minibank.local.webapp.util.JAXClientUtil;
 import com.ibm.cicsdev.minibank.frontend.entity.User;
 import com.ibm.cicsdev.minibank.frontend.util.IConstants;
 
@@ -25,6 +25,8 @@ public class UserCreateMB implements Serializable {
 	private String operationMessage;
 
 	public User getCurrentUser() {
+		if(currentUser.getGender()=='\0')
+			currentUser.setGender('m');
 		return currentUser;
 	}
 
@@ -34,12 +36,11 @@ public class UserCreateMB implements Serializable {
 
 	public String createUser() {
 		Response response;
+		Client client = JAXClientUtil.getInstance().getJaxClient();
 		try {
-			Client client = ClientBuilder.newClient();
 			response = client.target(IConstants.URL).path(IConstants.USEREVENT)
 					.request(MediaType.APPLICATION_JSON)
 					.post(Entity.json(currentUser));
-			System.out.println(response.getStatus());
 		} catch (Exception e) {
 			e.printStackTrace();
 			this.setOperationMessage("failed...");
