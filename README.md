@@ -18,40 +18,30 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 ## Contents
 
 ###Frontend application
-- Minibank-JEE7-Frontend/src
-
-	Source code of frontend.In **entity** folder, 
-- Minibank-JEE7-Frontend/WebContent
-
-	Web pages' source code and configurations for web layer, e.g. web.xml
-- Minibank-JEE7-Frontend/wlp
-
-	server.xml configuration for frontend Liberty Server.
-- Minibank-JEE7-Frontend/com.ibm.cicsdev.minibank.frontend.war
-
-	war bundle for frontend. It's independent from the files above, without any coding and import steps, just put it in dropins file of frontend server, then the frontend part can easily run.
+- ***Minibank-JEE7-Frontend/src***
+	Source code of frontend.In `entity`  folder, it includes POJO classes for data transferring with backend server.In `managedBean` folder, it includes **CDI Beans** for **JSF** to use. These seven Beans match the  seven key functions in our application. In `Util` folder, it includes constants and JAX Client class.
+- ***Minibank-JEE7-Frontend/WebContent***
+	Web pages' source code and configurations for web layer, e.g. web.xml.In `minibank-pages` folder, it includes the .xhtml pages we use and they use **JSF** tags to transfer data with CDI Beans.
+- ***Minibank-JEE7-Frontend/wlp***
+	**server.xml** configuration for frontend Liberty Server.When you start your own Liberty server for frontend, please replace the default server.xml file with this one.
+- ***Minibank-JEE7-Frontend/com.ibm.cicsdev.minibank.frontend.war***
+	war bundle for frontend. It's independent from the files above, without any coding and import steps, just put it in ***dropins*** folder of frontend server, then the frontend part can easily run.
 
 
 ###Backend application
-- Minibank-JEE7-Backend/src
-	
-	Source code of backend.
-- Minibank-JEE7-Backend/WebContent
-	
+- ***Minibank-JEE7-Backend/src*** 
+	Source code of backend.In `DTO` file are date transfer objects to communicate with frontend.For `entities` folder it includes the entities using in **JPA** and will be persist into datebase when the application start.`JAXConfig` is the configuration class that includes the JAX-RS services need to be initiated when the application start.`service` folder includes REST services the backend supply.
+- ***Minibank-JEE7-Backend/WebContent***
 	Web configuration files in this folder, e.g. web.xml
-- Minibank-JEE7-Backend/wlp 
-	
-	server.xml configuration for backend Liberty Server. etc.
-- Minibank-JEE7-Backend/com.ibm.cicsdev.minibank.backend.war
-	
-	war bundle for backend. Like frontend, you can put it in dropins file of backend server, then the backend part can run on server automatically.
+- ***Minibank-JEE7-Backend/wlp***
+	**server.xml** configuration for backend Liberty Server.If you setup your own Liberty server, please replace your server.xml file with this one.
+- ***Minibank-JEE7-Backend/com.ibm.cicsdev.minibank.backend.war***
+	war bundle for backend. Like frontend, you can put it in ***dropins*** folder of backend server, then the backend part can run on server automatically.
 	
 ###Database table definition
-- Minibank_DDL_DB2.jcl
-
+- ***Minibank_DDL_DB2.jcl***
 	DDL file for DB2, you can use this JCL to create the DB2 database required by Minibank on z/OS.
-- Minibank_DDL_Derby.sql
-	
+- ***Minibank_DDL_Derby.sql***
 	DDL file for Derby database creation, it's more easy in your local environment.
 
 ## Pre-reqs
@@ -68,16 +58,16 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 ### To try the samples in Eclipse:
 1. First, create a derby database in your laptop. We have already provided the DDL for the database needed, when you successfully create the database, set it to Server mode and start.It will automatically listen on port 1527. 
 
-1. In your eclipse Servers view, create a Liberty server for backend. And replace the server.xml with the one that we provide you in Minibank-JEE7-Backend-->wlp-->server.xml.
-	Something need to be changed here in server.xml,for label <dataSource>,please change the 'databaseName' to your own derby database path,and the same for label <library>,change the 'fileset dir' to your derby's installation path for libraries.
-	After that,put the Minibank-JEE7-Backend-->com.ibm.cicsdev.minibank.backend.war in backend liberty server's 'dropins' file,then it will deploy and run automatically.
-1. The last step is for frontend part. Also you need to create another Liberty server for frontend.And replace the server.xml with the one we provide in Minibank-JEE7-Frontend-->wlp-->server.xml.you don't need to change anything here.
-	Then put Minibank-JEE7-Frontend-->com.ibm.cicsdev.minibank.frontend.war in this backend liberty server's 'dropins' file.
+1. In your eclipse Servers view, create a Liberty server for backend. And replace the ***server.xml*** with the one that we provide you in ***Minibank-JEE7-Backend-->wlp-->server.xml***.
+	Something need to be changed here in server.xml,for label `<dataSource>`,please change the `<databaseName>` to your own derby database path,and the same for label `<library>`,change the `<fileset dir>` to your derby's installation path for libraries.
+	After that,put the ***Minibank-JEE7-Backend-->com.ibm.cicsdev.minibank.backend.war*** in backend liberty server's ***dropins*** folder,then it will deploy and run automatically.
+1. The last step is for frontend part. Also you need to create another Liberty server for frontend.And replace the server.xml with the one we provide in ***Minibank-JEE7-Frontend-->wlp-->server.xml***.you don't need to change anything here.
+	Then put ***Minibank-JEE7-Frontend-->com.ibm.cicsdev.minibank.frontend.war*** in this backend liberty server's ***dropins*** folder.
 	
-After these 3 steps above, visit 'localhost:9080/com.ibm.cicsdev.minibank.frontend/' in your browser.And now you can enjoy your Minibank Application!
+After these 3 steps above, visit <https://localhost:9080/com.ibm.cicsdev.minibank.frontend/> in your web browser.And now you can enjoy your Minibank Application!
 	
 
 ### To port the samples in CICS Liberty
-
+After you can run this in your local environment, it will be easy for you to port in in CICS Liberty,all you need is to start 2 CICS Region with Liberty,we make one as WOR for our frontend server and the other as AOR for our backend server.When your Liberty has started ,just do the samething as you do in your local environment.Put war file in dropins folder via USS filesystem both in WOR and AOR.And don't forget to change the server.xml files.
 
 Welcome contribution!
