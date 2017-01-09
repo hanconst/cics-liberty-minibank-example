@@ -6,9 +6,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 
+import com.ibm.cics.minibank.local.webapp.util.JAXClientUtil;
 import com.ibm.cicsdev.minibank.frontend.entity.Account;
 import com.ibm.cicsdev.minibank.frontend.util.IConstants;
 
@@ -31,14 +31,13 @@ public class AccountQueryMB implements Serializable {
 
 	public String queryAccount() {
 
-		Client client = ClientBuilder.newClient();
+		Client client = JAXClientUtil.getInstance().getJaxClient();
 		try {
 			queryResult =
 		            client.target(IConstants.URL)
 		            .path(IConstants.ACCOUNTEVENT+queryResult.getAccountNumber())
 		            .request(MediaType.APPLICATION_JSON)
 		            .get(Account.class);
-			client.close();
 			return "queryAccountResult";
 		} catch (Exception e) {
 			// TODO: handle exception

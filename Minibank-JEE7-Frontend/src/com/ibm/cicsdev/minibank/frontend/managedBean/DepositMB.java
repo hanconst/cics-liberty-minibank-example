@@ -6,14 +6,13 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.ibm.cics.minibank.local.webapp.util.JAXClientUtil;
 import com.ibm.cicsdev.minibank.frontend.entity.Account;
 import com.ibm.cicsdev.minibank.frontend.entity.TransactionPOJO;
-
 import com.ibm.cicsdev.minibank.frontend.util.IConstants;
 
 @Named
@@ -37,13 +36,12 @@ public class DepositMB implements Serializable {
 		transPOJO.setMoneyAmount(moneyAmount);
 
 		Response response;
-		Client client = ClientBuilder.newClient();
+		Client client = JAXClientUtil.getInstance().getJaxClient();
 		try {
 			response = client.target(IConstants.URL)
 		            .path(IConstants.TRANSEVENT+IConstants.DEPOSIT)
 		            .request(MediaType.APPLICATION_JSON)
 		            .put(Entity.json(transPOJO));
-			client.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 			this.setOperationMessage("failed...");

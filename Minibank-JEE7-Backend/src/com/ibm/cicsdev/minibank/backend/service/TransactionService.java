@@ -173,12 +173,6 @@ public class TransactionService {
 					TransHist transRecordForTargetAcct = addTransRecord(targetAccount,
 							"TRANSFER", moneyAmount);
 
-					/*
-					 * As for TransHistory table doesn't hava a Primary Key, we set
-					 * transTime as its id for the reason that JPA requires an id, To
-					 * avoid conflict we set the time different manually here.
-					 */
-
 					em.persist(transRecordForSourceAcct);
 					em.persist(transRecordForTargetAcct);
 					em.flush();

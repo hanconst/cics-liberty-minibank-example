@@ -47,18 +47,18 @@
 											<div class="col-md-6">
 												<h:inputText class="form-control required"
 													value="#{userCreateMB.currentUser.name}" id="usrName"
-													p:placeholder=" Customer Name ">
+													p:placeholder=" User Name ">
 												</h:inputText>
 											</div>
 										</div>
 
 										<div class="form-group has-success ">
 											<label class="control-label col-md-4" for="inputSuccess">
-												Customer ID </label>
+												User ID </label>
 											<div class="col-md-6">
 												<h:inputText class="form-control"
 													value="#{userCreateMB.currentUser.userId}"
-													p:placeholder=" Character or Number " id="customerID" />
+													p:placeholder=" Input a Number and 10 bits at most" id="customerID" />
 											</div>
 										</div>
 										<div class="form-group has-success ">
@@ -67,8 +67,7 @@
 											<div class="col-md-6">
 												<h:selectOneRadio layout="lineDirection"
 													value="#{userCreateMB.currentUser.gender}">
-													<f:selectItem itemLabel=" Male " itemValue="m"
-														checked="true" />
+													<f:selectItem itemLabel=" Male " itemValue="m" />
 													<f:selectItem itemLabel=" Female " itemValue="f" />
 												</h:selectOneRadio>
 											</div>
