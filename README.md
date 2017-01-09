@@ -9,8 +9,6 @@ The Java source components and the artifact of the frontend application can be f
 1. A backend application using JAX-RS, JSONP, CDI, JPA to update/query database based on the content in JSON requests. 
 The Java source components and the artifact of the backend application can be found in the Minibank-JEE7-Backend directory in this repository.
 
-Besides these 2 parts, we need you to create a derby database for storage.We have provided the DDL for creating tables required by this application. 
-
 
 ## License
 This project is licensed under [Apache License Version 2.0](LICENSE).   
@@ -30,18 +28,25 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 
 ###Backend application
 - ***Minibank-JEE7-Backend/src*** 
-	Source code of backend.In `DTO` file are date transfer objects to communicate with frontend.For `entities` folder it includes the entities using in **JPA** and will be persist into datebase when the application start.`JAXConfig` is the configuration class that includes the JAX-RS services need to be initiated when the application start.`service` folder includes REST services the backend supply.
+
+[Minibank-JEE7-Backend/src](Minibank-JEE7-Backend/src)
+
+Source code of backend.In `DTO` file are date transfer objects to communicate with frontend.For `entities` folder it includes the entities using in **JPA** and will be persist into datebase when the application start.`JAXConfig` is the configuration class that includes the JAX-RS services need to be initiated when the application start.`service` folder includes REST services the backend supply.
 - ***Minibank-JEE7-Backend/WebContent***
+
 	Web configuration files in this folder, e.g. web.xml
 - ***Minibank-JEE7-Backend/wlp***
+
 	**server.xml** configuration for backend Liberty Server.If you setup your own Liberty server, please replace your server.xml file with this one.
 - ***Minibank-JEE7-Backend/com.ibm.cicsdev.minibank.backend.war***
 	war bundle for backend. Like frontend, you can put it in ***dropins*** folder of backend server, then the backend part can run on server automatically.
 	
 ###Database table definition
 - ***Minibank_DDL_DB2.jcl***
+
 	DDL file for DB2, you can use this JCL to create the DB2 database required by Minibank on z/OS.
 - ***Minibank_DDL_Derby.sql***
+
 	DDL file for Derby database creation, it's more easy in your local environment.
 
 ## Pre-reqs
@@ -55,7 +60,7 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 ## Configuration
 
 
-### To try the samples in Eclipse:
+### To try the samples in your laptop:
 1. First, create a derby database in your laptop. We have already provided the DDL for the database needed, when you successfully create the database, set it to Server mode and start.It will automatically listen on port 1527. 
 
 1. In your eclipse Servers view, create a Liberty server for backend. And replace the ***server.xml*** with the one that we provide you in ***Minibank-JEE7-Backend-->wlp-->server.xml***.
