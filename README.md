@@ -120,8 +120,11 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 
 1. Do the samething for the **frontend** so that we got 2 CICS with Liberty server running.
 
+#### To create DB2 databse in CICS
 
-#### To deploy the samples into 2 CICS regions:
+Create the DB2 Database using the JCL file [*Minibank_DDL_DB2.jcl*](DB-Tables/Minibank_DDL_DB2.jcl) we provide.
+
+#### To deploy the samples in 2 CICS regions:
 1. Using the **CICS Explorer** export the CICS bundle project to a zFS directory.
 
 1. Create a `CICS BUNDLE` definition referencing the zFS directory created in step 1.
@@ -130,7 +133,8 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 
 1. Do the steps both for backend and frontend in 2 CICS regions.
 
-***Note:*** *As your environement now is CICS, so you need to change your port settings in the projects.*
+***Note:*** *As your environement now is CICS, so you need to change your port settings in the projects. And also change your datasource to DB2 instead of Derby. *
+
 
 #### Running the Example
 
