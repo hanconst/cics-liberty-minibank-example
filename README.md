@@ -78,24 +78,25 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 
 1. Download [Liberty](https://developer.ibm.com/wasdev/getstarted/) if you haven't installed it in your laptop, According to the guide, you can easily install it in Eclipse.
 
-1. Download [Derby](https://db.apache.org/derby/derby_downloads.html) if you haven't installed yet, after that create a derby database in your laptop. We have already provided the DDL for the database needed, you can make your database using this DDL quite easily.Then put [*Minibank_DDL_Derby.sql*](DB-Tables/Minibank_DDL_Derby.sql) file under your Derby's `bin` folder.According to [Derby Reference](https://builds.apache.org/job/Derby-docs/lastSuccessfulBuild/artifact/trunk/out/getstart/index.html) to create your own Derby database named ***minibank*** with the command below after setting `JAVA_HOME` and `DERBY_HOME` in your environment*(run the following command under ij)*:
+1. Download [Derby](https://db.apache.org/derby/derby_downloads.html) if you haven't installed yet, after that create a derby database in your laptop. We have already provided the DDL for the database needed, you can make your database using this DDL quite easily.Then put [*Minibank_DDL_Derby.sql*](DB-Tables/Minibank_DDL_Derby.sql) file under your Derby's `bin` folder. According to [Derby Reference](https://builds.apache.org/job/Derby-docs/lastSuccessfulBuild/artifact/trunk/out/getstart/index.html) to create your own Derby database named ***minibank*** with the command below after setting `JAVA_HOME` and `DERBY_HOME` in your environment*(run the following command under ij)*:
 
 		CONNECT 'jdbc:derby:minibank;create=true';
 		run 'Minibank_DDL_Derby.sql';
 
-	After creating the database, set it to NetworkServer mode and start.It will automatically listen on port 1527.quit the **ij** command and run *startNetworkServer* in `bin`.
+	After creating the database, set it to NetworkServer mode and start. It will automatically listen on port 1527. Quit the **ij** command and run *startNetworkServer* in `bin`.
 
-1. In your Eclipse Servers view, create a Liberty server for backend. Edit the ***server.xml*** by referencing the one that we provide you in [*backend_server.xml*](Minibank-JEE7-Backend/wlp/server.xml).You need to change the label `<dataSource>`,`<databaseName>` to your own derby database path,and the same for label `<library>`,change the `<fileset dir>` to your derby's installation path for libraries.
-	After that,put the [*backend war*](Minibank-JEE7-Backend/com.ibm.cicsdev.minibank.backend.war) in backend liberty server's ***dropins*** folder,then it will deploy and run automatically.
-1. The following step is for frontend part. Also you need to create another Liberty server for frontend.And edit the server.xml by referencing the one we provide in [*frontend_server.xml*](Minibank-JEE7-Frontend/wlp/server.xml).
+1. In your Eclipse Servers view, create a Liberty server for backend. Edit the ***server.xml*** by referencing the one that we provide you in [*backend_server.xml*](Minibank-JEE7-Backend/wlp/server.xml). You need to change the label `<dataSource>`,`<databaseName>` to your own derby database path,and the same for label `<library>`, change the `<fileset dir>` to your derby's installation path for libraries.
+	After that,put the [*backend war*](Minibank-JEE7-Backend/com.ibm.cicsdev.minibank.backend.war) in backend liberty server's ***dropins*** folder, then it will deploy and run automatically.
+1. The following step is for frontend part. Also you need to create another Liberty server for frontend. And edit the server.xml by referencing the one we provide in [*frontend_server.xml*](Minibank-JEE7-Frontend/wlp/server.xml).
 	Then put [*frontend.war*](Minibank-JEE7-Backend/com.ibm.cicsdev.minibank.frontend.war) in this backend liberty server's ***dropins*** folder.
 	
-1. After these 3 steps above, visit <https://localhost:9080/com.ibm.cicsdev.minibank.frontend/> in your web browser.And now you can enjoy your Minibank Application!
+1. After these 3 steps above, visit <https://localhost:9080/com.ibm.cicsdev.minibank.frontend/> in your web browser. And now you can enjoy your Minibank Application!
 	
 
-***NOTE:*** *This is a fast way you can run your Minibank Application,but usually we don't recommand the dropins way. For standard way, you can import the projects [Minibank-JEE7-Backend](Minibank-JEE7-Backend) and [Minibank-JEE7-Frontend](Minibank-JEE7-Frontend) into your Eclipse and try to run them.*
+***NOTE:*** *This is a fast way you can run your Minibank Application, but usually we don't recommand the dropins way. For standard way, you can import the projects [Minibank-JEE7-Backend](Minibank-JEE7-Backend) and [Minibank-JEE7-Frontend](Minibank-JEE7-Frontend) into your Eclipse and try to run them.*
 
-*Besides, in our examples, we use the default port 9080 in frontend server and port 9381 in backend server.For Derby, we use its default port 1527, of course you can use your own ports instead of them but dont forget to change the relative configurations.*
+*Besides, in our examples, we use the default port 9080 in frontend server and port 9381 in backend server. For Derby, we use its default port 1527, of course you can use your own ports instead of them but don't forget to change the relative configurations. If you change your backend server's port, please make it consistent with your frontend for URL value at [IConstants.java](Minibank-JEE7-Frontend/src/com/ibm/cicsdev/minibank/frontend/util/IConstants.java) .*
+
 
 ### To port the samples in CICS Liberty
 #### To add the resources to Eclipse:
