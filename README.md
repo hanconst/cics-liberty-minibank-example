@@ -87,7 +87,7 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 
 1. In your Eclipse Servers view, create a Liberty server for backend. Edit the ***server.xml*** by referencing the one that we provide you in [*backend_server.xml*](Minibank-JEE7-Backend/wlp/server.xml).You need to change the label `<dataSource>`,`<databaseName>` to your own derby database path,and the same for label `<library>`,change the `<fileset dir>` to your derby's installation path for libraries.
 	After that,put the [*backend war*](Minibank-JEE7-Backend/com.ibm.cicsdev.minibank.backend.war) in backend liberty server's ***dropins*** folder,then it will deploy and run automatically.
-1. The following step is for frontend part. Also you need to create another Liberty server for frontend.And edit the server.xml by referencing the one we provide in [* frontend_server.xml *](Minibank-JEE7-Frontend/wlp/server.xml).
+1. The following step is for frontend part. Also you need to create another Liberty server for frontend.And edit the server.xml by referencing the one we provide in [*frontend_server.xml*](Minibank-JEE7-Frontend/wlp/server.xml).
 	Then put [*frontend.war*](Minibank-JEE7-Backend/com.ibm.cicsdev.minibank.frontend.war) in this backend liberty server's ***dropins*** folder.
 	
 1. After these 3 steps above, visit <https://localhost:9080/com.ibm.cicsdev.minibank.frontend/> in your web browser.And now you can enjoy your Minibank Application!
