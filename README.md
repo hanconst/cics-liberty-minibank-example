@@ -93,9 +93,10 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 1. After these 3 steps above, visit <https://localhost:9080/com.ibm.cicsdev.minibank.frontend/> in your web browser.And now you can enjoy your Minibank Application!
 	
 
-*This is a fast way you can run your Minibank Application,but usually we don't recommand the **dropins** way. For standard way, you can import the projects [Minibank-JEE7-Backend](Minibank-JEE7-Backend) and [Minibank-JEE7-Frontend](Minibank-JEE7-Frontend) into your Eclipse and try to run them.*
+***NOTE:*** *This is a fast way you can run your Minibank Application,but usually we don't recommand the **dropins** way. For standard way, you can import the projects [Minibank-JEE7-Backend](Minibank-JEE7-Backend) and [Minibank-JEE7-Frontend](Minibank-JEE7-Frontend) into your Eclipse and try to run them.*
 
 *Besides, in our examples, we use the default port **9080** in frontend server and port **9381** in backend server.For Derby, we use its default port **1527**, of course you can use your own ports instead of them but dont forget to change the relative configurations.*
+
 ### To port the samples in CICS Liberty
 #### To add the resources to Eclipse:
 1. Using an Eclipse development environment and import both frontend and backend as dynamic web projects.
