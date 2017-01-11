@@ -133,7 +133,7 @@ Create the DB2 Database using the JCL file [*Minibank_DDL_DB2.jcl*](DB-Tables/Mi
 
 1. Do the steps both for backend and frontend in 2 CICS regions.
 
-***Note:*** *As your environement now is CICS, so you need to change your port settings in the projects. And also change your datasource to DB2 instead of Derby. *
+***Note:*** *As your environement now is CICS, so you need to change your port settings in the projects. And also change your datasource to DB2 instead of Derby.*
 
 
 #### Running the Example
