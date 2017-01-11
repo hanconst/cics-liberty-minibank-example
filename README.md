@@ -32,7 +32,7 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 
 	war file for frontend.
 
-	***NOTE*** *:if you want to try our samples quickly, you can put it in ***dropins*** folder of your Liberty frontend server, then the frontend part can run on server automatically.*
+	***NOTE:*** *if you want to try our samples quickly, you can put it in dropins folder of your Liberty frontend server, then the frontend part can run on server automatically.*
 
 
 ###Backend application
@@ -52,7 +52,7 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 	
 	war file for backend. Like frontend.
 	
-	***NOTE:*** *If you want to try our samples quickly, you can put it in ***dropins*** folder of your Liberty backend server, then the backend part can run on server automatically.*
+	***NOTE:*** *If you want to try our samples quickly, you can put it in dropins folder of your Liberty backend server, then the backend part can run on server automatically.*
 	
 ###Database table definition
 - [*Minibank_DDL_DB2.jcl*](DB-Tables/Minibank_DDL_DB2.jcl)
