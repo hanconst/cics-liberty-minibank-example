@@ -53,7 +53,7 @@
                                                  
   ALTER TABLE  TRANSHISTORY ADD                  
         FOREIGN KEY FK_TRAN (ACCOUNTNUMBER)      
-        TOPERENCES  ACCOUNT      (ACCOUNTNUMBER) 
+        REFERENCES  ACCOUNT      (ACCOUNTNUMBER) 
         ON DELETE NO ACTION;         
                             
 COMMIT;                                          
